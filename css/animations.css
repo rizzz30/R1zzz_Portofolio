@@ -1,0 +1,114 @@
+/* ===================================================================
+   PERBAIKAN TAMPILAN KARTU PROYEK & ANIMASI (RAPI & KONSISTEN)
+   =================================================================== */
+
+/* 1. Grid Proyek */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+/* 2. Kartu Proyek (Unified & Clean 3D Setup) */
+.project-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+/* Efek Holographic 3D Tilt & Specular Shine */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 3;
+    border-radius: inherit;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), 0 0 25px rgba(200, 109, 81, 0.2);
+}
+
+/* 3. Kontainer Gambar Proyek */
+.project-card .project-img-wrapper {
+    height: 210px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.project-card .project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mengisi penuh bingkai secara proporsional */
+    object-position: top center; /* Fokus tangkapan layar web dari bagian atas */
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efek Zoom Halus Saat Hover pada Gambar */
+.project-card:hover .project-img-wrapper img {
+    transform: scale(1.06);
+}
+
+/* 4. Informasi Proyek (Flex Column untuk Kerapian Tinggi Kartu) */
+.project-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.project-tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    background: rgba(200, 109, 81, 0.12);
+    color: var(--accent-color, #c86d51);
+    border-radius: 4px;
+}
+
+.project-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+}
+
+.project-info p {
+    color: var(--text-secondary, #999);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: auto; /* Memastikan posisi bawah teks konsisten */
+}

@@ -1,0 +1,60 @@
+/* Penataan Grid untuk 10 Proyek */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.project-img-wrapper {
+    height: 240px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.project-tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(200, 109, 81, 0.1);
+    color: var(--accent-color, #c86d51);
+    border-radius: 4px;
+}
+
+.project-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.project-info p {
+    color: var(--text-secondary, #888);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R1zzz — Digital Creative Experience & Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- External Libraries: Lenis, GSAP, Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <h1 class="preloader-logo">R1zzz</h1>
+            <p class="preloader-status">MENYIAPKAN PENGALAMAN DIGITAL...</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <span class="preloader-percentage">0%</span>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-line"></div>
+
+    <!-- Navbar -->
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="#home" class="nav-logo">R1zzz<span class="dot">.</span></a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-shortcut="H">Beranda</a>
+                <a href="#about" class="nav-link" data-shortcut="A">Tentang</a>
+                <a href="#skills" class="nav-link" data-shortcut="S">Keahlian</a>
+                <a href="#projects" class="nav-link" data-shortcut="P">Proyek</a>
+                <a href="#playground" class="nav-link">Eksperimen</a>
+                <a href="#contact" class="nav-link" data-shortcut="C">Kontak</a>
+            </div>
+            <div class="nav-extras">
+                <div class="local-clock"><i class="fa-regular fa-clock"></i> <span id="clock-time">00.00.00</span></div>
+                <button class="theme-toggle" aria-label="Ganti Tema"><i class="fa-solid fa-circle-half-stroke"></i></button>
+                <button class="menu-trigger" aria-label="Buka Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fullscreen Mobile Menu Overlay -->
+    <div class="fullscreen-menu">
+        <div class="menu-inner">
+            <ul class="menu-list">
+                <li><a href="#home" class="menu-link">01. Beranda</a></li>
+                <li><a href="#about" class="menu-link">02. Tentang Saya</a></li>
+                <li><a href="#skills" class="menu-link">03. Keahlian & Teknologi</a></li>
+                <li><a href="#projects" class="menu-link">04. Portofolio Pilihan</a></li>
+                <li><a href="#playground" class="menu-link">05. Area Eksperimen</a></li>
+                <li><a href="#contact" class="menu-link">06. Hubungi Saya</a></li>
+            </ul>
+            <div class="menu-footer">
+                <button class="terminal-trigger-btn" id="open-terminal-btn"><i class="fa-solid fa-terminal"></i> BUKA TERMINAL DEVELOPER (T)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content wrapper -->
+    <main id="content" data-scroll-container>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background-canvas" id="webgl-container"></div>
+            <div class="hero-container">
+                <div class="hero-badge"><span class="status-pulse"></span> Pelajar SMK & Creative Developer — Terbuka untuk Kolaborasi</div>
+                <h1 class="hero-title">
+                    <span class="line">MENGUBAH IDE</span>
+                    <span class="line highlight">MENJADI PENGALAMAN</span>
+                    <span class="line">DIGITAL PRESISI.</span>
+                </h1>
+                <div class="hero-subgrid">
+                    <div class="hero-bio">
+                        <p>Halo, saya <strong>Syafrizal </strong> — Pelajar SMK & Creative Developer asal Indonesia, berspesialisasi dalam WebGL interaktif, performa animasi tingkat tinggi, dan estetika Swiss editorial.</p>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary magnetic"><span>Lihat Karya Saya</span> <i class="fa-solid fa-arrow-right-long"></i></a>
+                        <a href="#contact" class="btn btn-secondary magnetic"><span>Mari Berbincang</span></a>
+                    </div>
+                </div>
+                <div class="hero-footer-meta">
+                    <div class="social-links">
+                        <a href="https://github.com/rizzz30" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/syafrizal-dwi-putra-k-r1zzz-80915a424" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.instagram.com/itz_r1zzz" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://tiktok.com/@itz_r1zzzz" target="_blank" rel="noopener">TikTok</a>
+                    </div>
+                    <div class="scroll-down-indicator">
+                        <span>Gulir untuk menjelajahi</span>
+                        <div class="mouse-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">01 / TENTANG SAYA</span>
+                    <h2>Menghubungkan Rekayasa & Seni Digital</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text-content">
+                        <p class="lead-text">Saya seorang pelajar SMK yang membangun artefak digital di mana logika pemrograman berpadu dengan seni visual eksperimental, berfokus pada minimalisme, performa, dan narasi yang berkesan.</p>
+                        <p>Ketertarikan saya dimulai dari rasa penasaran mendalam tentang bagaimana baris kode dapat menciptakan interaksi yang hidup dan fungsional. Sebagai developer muda, saya terus mengeksplorasi standar web modern, desain Swiss editorial, dan teknologi kreatif untuk menghasilkan karya berstandar industri.</p>
+                        <div class="about-philosophy">
+                            <h3>Filosofi Desain</h3>
+                            <ul>
+                                <li><strong>Bentuk Mengikuti Emosi:</strong> Estetika harus memperkuat kemudahan penggunaan, bukan mengaburkannya.</li>
+                                <li><strong>Performa Tanpa Kompromi:</strong> Animasi 60FPS yang mulus adalah harga mati.</li>
+                                <li><strong>Tipografi sebagai Seni:</strong> Layout lapang dan hierarki presisi membimbing pengguna secara natural.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-card-wrapper">
+                        <div class="interactive-profile-card">
+                            <div class="card-image-container">
+                                <div class="image-overlay-reveal"></div>
+                                <img src="assets/images/profile.jpg" alt="Syafrizal R1zzz" onerror="this.src='WhatsApp Image 2026-11-11 at 20.14.41.jpeg'">
+                            </div>
+                            <div class="card-meta">
+                                <h4>Syafrizal</h4>
+                                <p>SMK Student / Creative Developer</p>
+                                <div class="badge-set">
+                                    <span>Indonesia</span>
+                                    <span>Aktif 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Perjalanan Belajar Coding (Disesuaikan untuk Siswa SMK) -->
+                <div class="journey-timeline-wrapper">
+                    <h3 class="subsection-title text-center">Jejak Pendidikan & Tonggak Pembelajaran</h3>
+                    <div class="timeline centered-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2024 - Sekarang</div>
+                            <div class="timeline-content">
+                                <h4>Fokus Creative Coding & Web Interaktif</h4>
+                                <p>Mendalami pengembangan Front-End tingkat lanjut, implementasi WebGL, Three.js, animasi GSAP, serta membangun proyek web interaktif secara mandiri.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Masa Studi SMK</div>
+                            <div class="timeline-content">
+                                <h4>Pendidikan Kejuruan & Pengembangan Perangkat Lunak</h4>
+                                <p>Mempelajari dasar-dasar pemrograman, rekayasa perangkat lunak, logika algoritma, serta praktik pengembangan antarmuka web modern di sekolah.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2020 - 2022</div>
+                            <div class="timeline-content">
+                                <h4>Awal Mula Ngoding </h4>
+                                <p>Mulai mengenal dunia pemrograman web, eksperimen pertama dengan HTML5, CSS3, dan dasar JavaScript secara otodidak.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">02 / KEAHLIAN</span>
+                    <h2>Tumpukan Teknologi & Kapasitas</h2>
+                </div>
+
+                <!-- Infinite Technology Marquee -->
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <span>HTML5</span> • <span>CSS3</span> • <span>JavaScript ES6+</span> • <span>WebGL</span> • <span>Three.js</span> • <span>GSAP Motion</span> • <span>UI/UX Design</span> • <span>Figma</span> • <span>Git & GitHub</span> • <span>Responsive Design</span> •
+                        <span>HTML5</span> • <span>CSS3</span> • <span>JavaScript ES6+</span> • <span>WebGL</span> • <span>Three.js</span> • <span>GSAP Motion</span> • <span>UI/UX Design</span> • <span>Figma</span> • <span>Git & GitHub</span> • <span>Responsive Design</span> •
+                    </div>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card" data-skill="html">
+                        <i class="fa-brands fa-html5"></i>
+                        <h3>HTML5</h3>
+                        <p>Struktur semantik dokumen, kepatuhan aksesibilitas web, dan arsitektur objek teroptimasi.</p>
+                    </div>
+                    <div class="skill-card" data-skill="css">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <h3>CSS3 & Styling</h3>
+                        <p>Layout Grid/Flexbox tingkat lanjut, kustom properti, transformasi 3D CSS, dan tipografi fluid clamp.</p>
+                    </div>
+                    <div class="skill-card" data-skill="js">
+                        <i class="fa-brands fa-js"></i>
+                        <h3>JavaScript ES6+</h3>
+                        <p>Paradigma asinkron, manipulasi DOM, arsitektur event kustom, dan algoritma performa tinggi.</p>
+                    </div>
+                    <div class="skill-card" data-skill="responsive">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <h3>Responsive Web Design</h3>
+                        <p>Skalabilitas multi-perangkat yang mulus dari layar lebar desktop hingga layar ponsel ringkas.</p>
+                    </div>
+                    <div class="skill-card" data-skill="uiux">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>Pemetaan alur pengguna (user journey), wireframing, pembuatan prototipe interaktif berketepatan tinggi, dan sistem desain.</p>
+                    </div>
+                    <div class="skill-card" data-skill="git">
+                        <i class="fa-brands fa-git-alt"></i>
+                        <h3>Git Version Control</h3>
+                        <p>Strategi percabangan, alur kerja kolaboratif, integrasi CI/CD, dan manajemen commit yang bersih.</p>
+                    </div>
+                    <div class="skill-card" data-skill="github">
+                        <i class="fa-brands fa-github"></i>
+                        <h3>Ekosistem GitHub</h3>
+                        <p>Manajemen repositori, pipeline deployment otomatis, ulasan pull request, dan kontribusi kode terbuka.</p>
+                    </div>
+                    <div class="skill-card" data-skill="figma">
+                        <i class="fa-brands fa-figma"></i>
+                        <h3>Prototyping Figma</h3>
+                        <p>Sistem desain berbasis komponen, penguasaan auto-layout, dan serah terima aset ke pengembangan yang presisi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <!-- Projects & Achievements Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header flex-header">
+                    <div>
+                        <span class="section-tag">03 / PORTOFOLIO & PRESTASI</span>
+                        <h2>Karya Pilihan & Sertifikasi</h2>
+                    </div>
+                    <div class="project-filters">
+                        <button class="filter-btn active" data-filter="all">Semua (12)</button>
+                        <button class="filter-btn" data-filter="project">Karya Proyek (6)</button>
+                        <button class="filter-btn" data-filter="certificate">Sertifikat & Prestasi (6)</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- ================= KARYA PROYEK (1 - 6) ================= -->
+                    
+                    <!-- Proyek 1: R1zzz_Al-Qur'an -->
+                    <div class="project-card" data-category="project" data-project-id="1">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 00.20.43 (1).jpeg" alt="R1zzz Al-Qur'an">
+                            <div class="project-overlay-action"><span>Lihat Studi Kasus</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Platform</span><span>Vanilla JS</span><span>API</span></div>
+                            <h3>R1zzz_Al-Qur'an</h3>
+                            <p>Platform web Al-Qur'an digital elegan dengan pemutaran audio tilawah, pencarian lanjutan, dan tipografi menenangkan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 2: Mama AL Food Ordering -->
+                    <div class="project-card" data-category="project" data-project-id="2">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 00.20.42.jpeg" alt="Mama AL Food Ordering">
+                            <div class="project-overlay-action"><span>Lihat Studi Kasus</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Web App</span><span>UI/UX</span><span>Interaktif</span></div>
+                            <h3>Mama AL Food Ordering</h3>
+                            <p>Pengalaman pemesanan kuliner digital yang mulus, navigasi intuitif, dan pembaruan keranjang instan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 3: R1zzz Store (Game Top-Up) -->
+                    <div class="project-card" data-category="project" data-project-id="3">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 00.20.43.jpeg" alt="R1zzz Store">
+                            <div class="project-overlay-action"><span>Lihat Studi Kasus</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Web App</span><span>E-Commerce</span><span>Payment</span></div>
+                            <h3>R1zzz Store Game Top-Up</h3>
+                            <p>Platform top-up game instan, cepat, aman, dan terpercaya dengan integrasi sistem transaksi real-time.</p>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 4: R1zzz Coding Platform -->
+                    <div class="project-card" data-category="project" data-project-id="4">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 01.24.21.jpeg" alt="R1zzz Coding Platform">
+                            <div class="project-overlay-action"><span>Lihat Studi Kasus</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Platform</span><span>Edukasi</span><span>Interactive</span></div>
+                            <h3>R1zzz Coding Learning Platform</h3>
+                            <p>Pusat edukasi interaktif dengan peta jalan pengembangan web modular dan tempat bermain kode langsung.</p>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 5: Employee Attendance System -->
+                    <div class="project-card" data-category="project" data-project-id="5">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 01.26.52.jpeg" alt="Employee Attendance System">
+                            <div class="project-overlay-action"><span>Lihat Studi Kasus</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Sistem</span><span>Enterprise</span><span>Dashboard</span></div>
+                            <h3>Employee Attendance System</h3>
+                            <p>Portal manajemen tenaga kerja andal dengan fitur absensi geofence dan pembuatan lembar waktu otomatis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 6: Personal Developer Portfolio -->
+                    <div class="project-card" data-category="project" data-project-id="6">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 01.32.14.jpeg" alt="Personal Developer Portfolio">
+                            <div class="project-overlay-action"><span>Lihat Studi Kasus</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Web App</span><span>WebGL</span><span>GSAP</span></div>
+                            <h3>Personal Developer Portfolio</h3>
+                            <p>Pengalaman imersif mutakhir menampilkan prinsip tata letak minimalis brutalist Swiss dan terminal interaktif.</p>
+                        </div>
+                    </div>
+
+
+                    <!-- ================= SERTIFIKAT & PRESTASI (7 - 12) ================= -->
+
+                    <!-- Sertifikat 1 -->
+                    <div class="project-card certificate-card" data-category="certificate" data-project-id="7">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 00.53.01.jpeg" alt="Sertifikat Frontend Expert">
+                            <div class="project-overlay-action"><span>Lihat Kredensial</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Sertifikat</span><span>Frontend</span><span>Dicoding / Industri</span></div>
+                            <h3>Expert Front-End Web Developer</h3>
+                            <p>Sertifikasi kompetensi pengembangan antarmuka web tingkat lanjut dengan standar industri global.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sertifikat 2 -->
+                    <div class="project-card certificate-card" data-category="certificate" data-project-id="8">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 00.38.39.jpeg" alt="Juara LKS SMK">
+                            <div class="project-overlay-action"><span>Lihat Kredensial</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Prestasi</span><span>LKS SMK</span><span>Juara 1</span></div>
+                            <h3>Juara 1 Lomba Kompetensi Siswa (LKS) Web Technologies</h3>
+                            <p>Penghargaan tingkat regional dalam perancangan dan implementasi aplikasi web berkinerja tinggi.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sertifikat 3 -->
+                    <div class="project-card certificate-card" data-category="certificate" data-project-id="9">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 00.57.56.jpeg" alt="JavaScript Algorithms">
+                            <div class="project-overlay-action"><span>Lihat Kredensial</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Sertifikat</span><span>JavaScript</span><span>Algorithms</span></div>
+                            <h3>JavaScript Algorithms & Data Structures</h3>
+                            <p>Sertifikat keahlian pemecahan masalah logika pemrograman tingkat lanjut menggunakan JavaScript modern.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sertifikat 4 -->
+                    <div class="project-card certificate-card" data-category="certificate" data-project-id="10">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 01.14.20.jpeg" alt="UI/UX Design Masterclass">
+                            <div class="project-overlay-action"><span>Lihat Kredensial</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Sertifikat</span><span>UI/UX</span><span>Figma</span></div>
+                            <h3>Modern UI/UX Design Masterclass</h3>
+                            <p>Pelatihan profesional perancangan antarmuka pengguna, sistem desain, dan prinsip estetika Swiss brutalist.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sertifikat 5 -->
+                    <div class="project-card certificate-card" data-category="certificate" data-project-id="11">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 01.18.27.jpeg" alt="Cybersecurity Basics">
+                            <div class="project-overlay-action"><span>Lihat Kredensial</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Sertifikat</span><span>Security</span><span>Networking</span></div>
+                            <h3>Introduction to Cybersecurity & Web Security</h3>
+                            <p>Pelatihan khusus pengamanan aplikasi web dari kerentanan umum dan praktik penulisan kode aman.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sertifikat 6 -->
+                    <div class="project-card certificate-card" data-category="certificate" data-project-id="12">
+                        <div class="project-img-wrapper">
+                            <img src="WhatsApp Image 2026-11-14 at 01.20.29.jpeg" alt="Hackathon Winner">
+                            <div class="project-overlay-action"><span>Lihat Kredensial</span></div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags"><span>Prestasi</span><span>Hackathon</span><span>Inovasi</span></div>
+                            <h3>Best Innovation Award - Nasional Hackathon Pelajar</h3>
+                            <p>Penghargaan atas penciptaan solusi web interaktif inovatif dalam ajang kompetisi coding tingkat nasional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experimental Playground Section -->
+        <section id="playground" class="playground-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">04 / LABS</span>
+                    <h2>Area Eksperimen Interaktif</h2>
+                </div>
+                <div class="playground-stage">
+                    <div class="playground-canvas-box" id="playground-canvas-container">
+                        <div class="playground-overlay-instructions">
+                            <p><i class="fa-solid fa-hand-pointer"></i> Gerakkan kursor atau klik untuk berinteraksi dengan medan partikel kuantum</p>
+                            <button id="reset-particles-btn" class="btn btn-sm">Reset Medan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">05 / LAYANAN</span>
+                    <h2>Kapasitas & Penawaran Jasa</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-num">01</div>
+                        <h3>Pengembangan Website</h3>
+                        <p>Aplikasi web kustom berskala luas yang dibangun dari nol menggunakan kode vanilla semantik bersih serta performa optimal.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">02</div>
+                        <h3>Pembuatan Landing Page</h3>
+                        <p>Halaman arahan promosi konversi tinggi yang dirancang dengan desain gerak yang memukau dan penempatan merek yang presisi.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">03</div>
+                        <h3>Website Responsif</h3>
+                        <p>Adaptasi lintas perangkat tanpa cela yang menjamin pengalaman jelajah mulus di ponsel, tablet, laptop, dan layar lebar.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">04</div>
+                        <h3>Pengembangan Front-End</h3>
+                        <p>Menerjemahkan desain Figma yang kompleks ke antarmuka pengguna super mulus menggunakan animasi GSAP dan manajemen state tangguh.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">05</div>
+                        <h3>Desain UI/UX</h3>
+                        <p>Arsitektur digital berpusat pada pengguna, pembuatan wireframe, dan prototipe desain interaktif yang disesuaikan untuk tingkat keterlibatan maksimal.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">06</div>
+                        <h3>Optimasi Website</h3>
+                        <p>Audit performa, optimasi aset, penyempurnaan scroll halus, serta peningkatan aksesibilitas web secara menyeluruh.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">06 / ULASAN</span>
+                    <h2>Catatan Kolaborator</h2>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <p class="quote">"Syafrizal memberikan pengalaman digital yang luar biasa. Ketelitian terhadap detail dalam gerak dan tipografinya benar-benar berstandar kelas dunia."</p>
+                        <div class="client-meta">
+                            <h4>Rekan Kolaborasi Proyek</h4>
+                            <p>Lead Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="section-tag">07 / KONTAK</span>
+                        <h2 class="huge-headline">MARI CIPTAKAN KARYA HEBAT.</h2>
+                        <p>Memiliki proyek impian, penawaran menarik, atau sekadar ingin terhubung? Hubungi langsung atau kirim pesan melalui formulir.</p>
+                        <div class="direct-contact-box">
+                            <span class="email-text" id="user-email-text">syafrizalx@gmail.com</span>
+                            <button class="btn btn-sm" id="copy-email-btn"><i class="fa-regular fa-copy"></i> Salin Email</button>
+                        </div>
+                        <div class="social-links-big">
+                            <a href="https://github.com/rizzz30" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://www.linkedin.com/in/syafrizal-dwi-putra-k-r1zzz-80915a424" target="_blank">LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://www.instagram.com/itz_r1zzz" target="_blank">Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://tiktok.com/@itz_r1zzzz" target="_blank">TikTok <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nama Anda</label>
+                                <input type="text" id="name" required placeholder="...">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Anda</label>
+                                <input type="email" id="email" required placeholder="...">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subjek</label>
+                                <input type="text" id="subject" required placeholder="Pertanyaan Proyek / Kolaborasi">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan</label>
+                                <textarea id="message" rows="5" required placeholder="Ceritakan detail proyek Anda..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block"><span>Kirim Pesan</span> <i class="fa-solid fa-paper-plane"></i></button>
+                            <div id="form-success-msg" class="success-notification hidden">Pesan berhasil disiapkan! (Hubungkan endpoint backend untuk mengirimkan).</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container footer-flex">
+                <p>&copy; <span id="current-year">2026</span> R1zzz. Hak Cipta Dilindungi.</p>
+                <button id="back-to-top" class="back-to-top-btn">Kembali ke atas <i class="fa-solid fa-arrow-up"></i></button>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Terminal Modal -->
+    <div id="terminal-modal" class="terminal-modal hidden">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot-red" id="close-terminal"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                </div>
+                <div class="terminal-title">r1zzz@digital-terminal:~</div>
+                <div class="terminal-close"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <p class="welcome-text">R1zzz Interactive Developer Shell v2.6.0</p>
+                <p class="welcome-text">Ketik <strong>'help'</strong> untuk melihat daftar perintah sistem.</p>
+                <br>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt-symbol">r1zzz@portfolio:~$</span>
+                <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="project-modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content-box">
+            <button class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-dynamic-body"></div>
+        </div>
+    </div>
+
+    <!-- Floating Terminal Trigger -->
+    <button class="floating-terminal-launcher" id="floating-terminal-btn" title="Buka Terminal (T)">
+        <i class="fa-solid fa-terminal"></i>
+    </button>
+
+    <!-- JavaScript Modules -->
+    <script src="js/theme.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/playground.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/three-scene.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
